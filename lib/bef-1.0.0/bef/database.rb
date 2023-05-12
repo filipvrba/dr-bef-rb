@@ -17,7 +17,8 @@ module Bef
         "&database=#{@name}&query=#{query_escape}"
       @results[query_escape] ||= $gtk.http_get(uri)
 
-      if @results[query_escape] and @results[query_escape][:complete]
+      if @results[query_escape] and @results[query_escape][:complete] &&
+          @results[query_escape][:http_response_code] > -1
         callback.call(@results[query_escape][:response_data])
       end
     end
