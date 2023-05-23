@@ -13,6 +13,5 @@ module Bef
       end
       return escaped_str
     end
-    
   end
 end
